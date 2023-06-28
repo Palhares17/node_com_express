@@ -1,0 +1,10 @@
+Oque é Repository Pattarns
+
+Data Source: Fonte de Dados(Array, SQL, NoSQL, .json, API)
+
+Repository Pattarns: Layer (camada) de abstração de acesso ao data source
+
+
+Controller <-> Data Source
+
+Controller <-> Repository <-> Data Source
