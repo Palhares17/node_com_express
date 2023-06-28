@@ -42,9 +42,9 @@ class ContactsRepository {
     });
   }
 
-  findByPhone(phone) {
+  findByEmail(email) {
     return new Promise((resolve) => {
-      contacts = contacts.filter((contact) => contact.phone !== phone);
+      contacts = contacts.filter((contact) => contact.email !== email);
       resolve();
     });
   }

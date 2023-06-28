@@ -23,7 +23,7 @@ class ContactController {
   async store(request, response) {
     // criar um registro
     const {
-      id, name, phone, category_id,
+      id, name, email, phone, category_id,
     } = request.body;
 
     if (!name) {
@@ -47,7 +47,7 @@ class ContactController {
     // Editar um registro
     const { id } = request.params;
     const {
-      name, phone, category_id,
+      name, email, phone, category_id,
     } = request.body;
 
     const contactExists = await ContactsRepository.findById(id);
@@ -60,13 +60,13 @@ class ContactController {
       return response.status(400).json({ name: 'Precisa botar nome' });
     }
 
-    const contactByPhone = await ContactsRepository.findByPhone(phone);
+    const contactByPhone = await ContactsRepository.findByEmail(email);
     if (contactByPhone && contactByPhone.id !== id) {
       return response.status(400).json({ phone: 'Numero de telefone já está sendo usado' });
     }
 
     const contact = await ContactsRepository.update(id, {
-      name, phone, category_id,
+      name, email, phone, category_id,
     });
 
     response.json(contact);

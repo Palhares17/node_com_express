@@ -13,5 +13,6 @@ module.exports = {
     'no-unused-vars': 'off',
     'consistent-return': 'off',
     camelcase: 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };
